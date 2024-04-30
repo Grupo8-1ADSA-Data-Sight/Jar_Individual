@@ -1,0 +1,12 @@
+maquinas\CPU.class
+bancoDeDados\CriarTabelas.class
+maquinas\CPUSpec.class
+maquinas\HD.class
+bancoDeDados\Conexao.class
+program\Main.class
+bancoDeDados\InserirDadosNaTabela.class
+util\ApresentarDados.class
+maquinas\HDSpec.class
+maquinas\RAM.class
+util\Usuario.class
+maquinas\Processos.class
