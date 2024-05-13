@@ -62,7 +62,7 @@ public class CPULeitura extends Processador {
                                                           Leitura da CPU
                ----------------------------------------------------------------------------------------------------
                      Uso       |       Tempo de atividade       |       Horário da leitura       |       fkCPU
-                     %.2f               %s                     %s                      %d
+                     %.2f                %s                     %s                      %d
                ----------------------------------------------------------------------------------------------------
                 """, uso,sb.append(Conversor.formatarSegundosDecorridos(sistema.getTempoDeAtividade())), dataHoraLeitura, fkCPU);
     }

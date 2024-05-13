@@ -33,8 +33,7 @@ public class RAM extends Memoria{
 
     @Override
     public String toString() {
-        return "******* RAM *******" +
-                "\ntotalRam: " + Conversor.formatarBytes(getTotalRam()) +
-                "\n***************************************";
+        return "\ntotalRam: " + Conversor.formatarBytes(getTotalRam());
+
     }
 }

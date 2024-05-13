@@ -55,11 +55,11 @@ public class HDLeitura extends DiscoGrupo{
     @Override
     public String toString() {
         return String.format("""
-                                                Leitura do HD
-               -------------------------------------------------------------------------------------
-                    Uso     |       Disponivel      |       Horário da leitura      |       fkHd
-                   %.2f              %.2f                      %s                   %d 
-               -------------------------------------------------------------------------------------
+                                                          Leitura da HD
+               ----------------------------------------------------------------------------------------------------
+                        Uso      |       Disponivel      |       Horário da leitura      |       fkHd
+                      %.2f Gb           %.2f Gb                     %s                   %d 
+               ----------------------------------------------------------------------------------------------------
                 """, uso, disponivel, dataHoraLeitura, fkHD);
     }
 }

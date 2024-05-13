@@ -53,11 +53,12 @@ public class RAMLeitura extends Memoria{
 
     @Override
     public String toString() {
-        return "RAMLeitura{" +
-                "\nemUso='" + (emUso / 1000000000.0) + '\'' +
-                ", \ndisponivel='" + (disponivel / 1000000000.0) + '\'' +
-                ", \ndataHoraLeitura='" + dataHoraLeitura + '\'' +
-                ", \nfkRAM='" + fkRAM + '\'' +
-                '}';
+        return String.format("""
+                                                           Leitura da RAM
+               ----------------------------------------------------------------------------------------------------
+                        Uso      |       Disponivel      |       Horário da leitura      |       fkRAM
+                      %.2f Gb              %.2f Gb                    %s                     %d
+               ----------------------------------------------------------------------------------------------------
+                """, (emUso / 1000000000.0), (disponivel / 1000000000.0), dataHoraLeitura, fkRAM);
     }
 }

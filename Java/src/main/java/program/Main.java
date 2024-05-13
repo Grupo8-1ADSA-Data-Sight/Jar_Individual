@@ -24,6 +24,7 @@ public class Main {
         RAMLeitura ramLeitura = new RAMLeitura();
         RedeGrupo redeGrupo = new RedeGrupo();
         RedeGrupoLeitura redeGrupoLeitura = new RedeGrupoLeitura();
+        SistemaLeitura sistemaLeitura = new SistemaLeitura();
 
         System.out.println("******************************************************************************************");
         System.out.println("""
@@ -48,11 +49,12 @@ public class Main {
 //                criarTabelas.criarTabelaBanco();
 //            while (usuario.verificarUsuario(email, senha).equals(true)){
                 inserindo.inserindoDadosNaTabela();
+                System.out.println(sistemaLeitura);
                 System.out.println(cpu);
                 System.out.println(cpuLeitura);
                 System.out.println(hd);
                 System.out.println(hdLeitura);
-                System.out.println(ram);
+//                System.out.println(ram);
                 System.out.println(ramLeitura);
 //                apresentarDados.pegarDadosTabela();
                 estaLogado = true;

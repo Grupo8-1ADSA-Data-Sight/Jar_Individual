@@ -93,17 +93,17 @@ public class CPU extends Processador{
     @Override
     public String toString() {
         return String.format("""
-                                                CPU
-                --------------------------------------------------------------------                                 
-                idCpuMaquina = %s
-                fabricante = %s
-                nome = %s
-                identificador = %s
-                frequenciaGhz = %d
-                nucleosFisicos = %d
-                nucleosLogicos = %d
-                fkMaquina = %d                        
-                --------------------------------------------------------------------
+                                                                CPU
+               ----------------------------------------------------------------------------------------------------                                 
+               idCpuMaquina = %s
+               Fabricante = %s
+               Nome = %s
+               Identificador = %s
+               FrequenciaGhz = %d
+               Nucleos Fisicos = %d
+               Nucleos Logicos = %d
+               fkMaquina = %d                        
+               ----------------------------------------------------------------------------------------------------
                 """, idCPUMaquina, fabricante, nome, identificador, frequenciaGhz, nucleosFisicos, nucleosLogicos, fkMaquina);
     }
 }

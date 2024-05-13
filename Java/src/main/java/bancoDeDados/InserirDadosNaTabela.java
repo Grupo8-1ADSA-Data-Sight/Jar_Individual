@@ -20,6 +20,7 @@ public class InserirDadosNaTabela {
     HDLeitura hdLeitura = new HDLeitura();
     RAM ram = new RAM();
     RAMLeitura ramLeitura = new RAMLeitura();
+    SistemaLeitura sistemaLeitura = new SistemaLeitura();
 
     DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
 
@@ -45,5 +46,8 @@ public class InserirDadosNaTabela {
 
         //Inserindo no banco de dados da RAMLeitura, puxando os dados pela API - looca
         con.update("INSERT INTO RAMLeitura (emUso, disponivel, dataHoraLeitura, fkRam) values (?, ?, ?, ?)", ramLeitura.getEmUso(), ramLeitura.getDisponivel(), ramLeitura.getDataHoraLeitura(), ram.getFkMaquina());
+
+        //Inserindo no banco de dados da SistemaLeitura, puxando os dados pela API - looca
+        con.update("INSERT INTO SistemaLeitura (sistemaOperacional, fabricante, arquitetura, permissao, fkMaquina) values (?, ?, ?, ?, ?)", sistemaLeitura.getSistemaOperacional(), sistemaLeitura.getFabricante(), sistemaLeitura.getArquitetura(), sistemaLeitura.getPermissao(), sistemaLeitura.getFkMaquina());
     }
 }
