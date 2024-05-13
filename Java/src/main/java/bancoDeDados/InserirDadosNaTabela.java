@@ -3,10 +3,7 @@ package bancoDeDados;
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.discos.Disco;
 import com.github.britooo.looca.api.group.discos.DiscoGrupo;
-import maquinas.CPU;
-import maquinas.CPUSpec;
-import maquinas.HDSpec;
-import maquinas.RAM;
+import maquinas.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
@@ -18,9 +15,11 @@ public class InserirDadosNaTabela {
 
     // Objetos das maquinas
     CPU cpu = new CPU();
-    CPUSpec cpuSpec = new CPUSpec();
-    HDSpec hdSpec = new HDSpec();
+    CPULeitura cpuLeitura = new CPULeitura();
+    HD hd = new HD();
+    HDLeitura hdLeitura = new HDLeitura();
     RAM ram = new RAM();
+    RAMLeitura ramLeitura = new RAMLeitura();
 
     DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
 
@@ -28,20 +27,23 @@ public class InserirDadosNaTabela {
     List<Disco> discos = grupoDeDiscos.getDiscos();
 
     public void inserindoDadosNaTabela(){
-        //Inserindo no banco de dados dados da CPU, puxando os dados pela API - looca
-        con.update("INSERT INTO CPU (uso, DataHoraLeitura, fkMaquina) values (?, now(), 1)", cpu.getUsoCPU());
+        //Inserindo no banco de dados da CPU, puxando os dados pela API - looca
+        con.update("INSERT INTO CPU (idCPUMaquina ,fabricante, nome, identificador, frequenciaGHz, nucleosFisicos, nucleosLogicos, fkMaquina) values (?, ?, ?, ?, ?, ?, ?, ?)", cpu.getIdCPUMaquina(), cpu.getFabricante(), cpu.getNome(), cpu.getIdentificador(), cpu.getFrequenciaGhz(), cpu.getNucleosFisicos(), cpu.getNucleosLogicos(), cpu.getFkMaquina());
 
-        //Inserindo no banco de dados dados da CPUSpec, puxando os dados pela API - looca
+        //Inserindo no banco de dados da CPULeitura, puxando os dados pela API - looca
 
-        con.update("INSERT INTO CPUSpec (fabricante, nome, identificador, qtdNucleo, frequenciaGHz,fkCPU) values (?, ?, ?, ?,?,1)", cpuSpec.getFabricante(), cpuSpec.getNome(), cpuSpec.getIdentificador(), cpuSpec.getQtdNucleo(), cpuSpec.getFrequenciaGHz());
+        con.update("INSERT INTO CPULeitura (uso, tempoAtividade, dataHoraLeitura, fkCPU) values (?, ?, ?, ?)", cpuLeitura.getUso(), cpuLeitura.getTempoAtividade(), cpuLeitura.getDataHoraLeitura(), cpuLeitura.getFkCPU());
 
-        //Inserindo no banco de dados dados da HD, puxando os dados pela API - looca
-        con.update("INSERT INTO HD (DataHoraLeitura, fkMaquina) values (now(), 1)");
+        //Inserindo no banco de dados da HD, puxando os dados pela API - looca
+        con.update("INSERT INTO HD (nome, tamanho, fkMaquina) values (?, ? , ?)", hd.getNome(), hd.getTamanho(), hd.getFkMaquina());
 
-        //Inserindo no banco de dados dados da HDSpec, puxando os dados pela API - looca
-        con.update("INSERT INTO HDSpec (nome, total, disponivel, tipo, fkHD) values (?, ?, ?, ?, 1)", hdSpec.getNome(), hdSpec.getTotal(), hdSpec.getDisponivel(), hdSpec.getTipo());
+        //Inserindo no banco de dados da HDLeitura, puxando os dados pela API - looca
+        con.update("INSERT INTO HDLeitura (uso, disponivel, dataHoraLeitura, fkHD) values (?, ?, ?, ?)", hdLeitura.getUso(), hdLeitura.getDisponivel(), hdLeitura.getDataHoraLeitura(), hdLeitura.getFkHD());
 
-        //Inserindo no banco de dados dados da RAM, puxando os dados pela API - looca
-        con.update("INSERT INTO RAM (EmUso, Total, Disponivel,DataHoraLeitura, fkMaquina) values (?, ?, ?, now(), 1)", ram.getEmUso(), ram.getTotal(), ram.getDisponivel());
+        //Inserindo no banco de dados da RAM, puxando os dados pela API - looca
+        con.update("INSERT INTO RAM (armazenamentoTotal, fkMaquina) values (?, ?)", ram.getTotalRam(), ram.getFkMaquina());
+
+        //Inserindo no banco de dados da RAMLeitura, puxando os dados pela API - looca
+        con.update("INSERT INTO RAMLeitura (emUso, disponivel, dataHoraLeitura, fkRam) values (?, ?, ?, ?)", ramLeitura.getEmUso(), ramLeitura.getDisponivel(), ramLeitura.getDataHoraLeitura(), ram.getFkMaquina());
     }
 }

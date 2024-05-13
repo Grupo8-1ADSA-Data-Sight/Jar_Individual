@@ -1,53 +1,40 @@
 package maquinas;
 
-import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.memoria.Memoria;
 import com.github.britooo.looca.api.util.Conversor;
 
-public class RAM {
-    Looca looca = new Looca();
-    Memoria memoria = looca.getMemoria();
+public class RAM extends Memoria{
+    Memoria memoria = new Memoria();
 
-    private Long EmUso;
-    private Long Total;
-    private Long Disponivel;
+    private Long totalRam;
+    private Integer fkMaquina;
 
 
     public RAM() {
-        EmUso = memoria.getEmUso();
-        Total = memoria.getTotal();
-        Disponivel = memoria.getDisponivel();
+        totalRam = memoria.getTotal();
+        this.fkMaquina = 1;
     }
 
-    public Long getEmUso() {
-        return EmUso;
+    public Long getTotalRam() {
+        return totalRam;
     }
 
-    public void setEmUso(Long emUso) {
-        EmUso = emUso;
+    public void setTotalRam(Long total) {
+        totalRam = total;
     }
 
-    public Long getTotal() {
-        return Total;
+    public Integer getFkMaquina(){
+        return fkMaquina;
     }
 
-    public void setTotal(Long total) {
-        Total = total;
-    }
-
-    public Long getDisponivel() {
-        return Disponivel;
-    }
-
-    public void setDisponivel(Long disponivel) {
-        Disponivel = disponivel;
+    public void setFkMaquina(Integer fkMaquina){
+        this.fkMaquina = fkMaquina;
     }
 
     @Override
     public String toString() {
-        return "Dados da memória RAM: " +
-                "\nEm uso: " + Conversor.formatarBytes(getEmUso()) +
-                "\nTotal: " + Conversor.formatarBytes(getTotal()) +
-                "\nDisponivel: " + Conversor.formatarBytes(getDisponivel());
+        return "******* RAM *******" +
+                "\ntotalRam: " + Conversor.formatarBytes(getTotalRam()) +
+                "\n***************************************";
     }
 }

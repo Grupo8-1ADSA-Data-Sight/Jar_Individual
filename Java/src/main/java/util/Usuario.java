@@ -12,16 +12,17 @@ public class Usuario {
 
     private String email;
     private String senha;
-    private ApresentarDados apresentarDados;
+    private Integer fkEmpresa;
 
+//    private ApresentarDados apresentarDados;
 
     public Usuario(){
 
     }
-
-    public Usuario(String email, String senha) {
+    public Usuario(String email, String senha, Integer fkEmpresa) {
         this.email = email;
         this.senha = senha;
+        this.fkEmpresa = fkEmpresa;
     }
 
     public Boolean verificarUsuario(String email, String senha){
@@ -50,10 +51,19 @@ public class Usuario {
         this.senha = senha;
     }
 
+    public Integer getFkEmpresa() {
+        return fkEmpresa;
+    }
+
+    public void setFkempresa(Integer fkEmpresa) {
+        this.fkEmpresa = fkEmpresa;
+    }
+
     @Override
     public String toString() {
         return "Usuario: " +
                 "email='" + email + '\'' +
-                ", senha='" + senha + '\'';
+                ", senha='" + senha + '\'' +
+                ", fkEmpresa='" + fkEmpresa + '\'';
     }
 }
