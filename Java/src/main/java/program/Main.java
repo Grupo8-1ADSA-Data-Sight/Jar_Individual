@@ -1,10 +1,10 @@
 package program;
 
 //import bancoDeDados.CriarTabelas;
-import bancoDeDados.InserirDadosNaTabela;
+//import bancoDeDados.InserirDadosNaTabela;
 //import util.ApresentarDados;
 import maquinas.*;
-import util.Usuario;
+//import util.Usuario;
 
 import java.util.Scanner;
 
@@ -12,9 +12,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 //        CriarTabelas criarTabelas = new CriarTabelas();
-        InserirDadosNaTabela inserindo = new InserirDadosNaTabela();
+//        InserirDadosNaTabela inserindo = new InserirDadosNaTabela();
 //        ApresentarDados apresentarDados = new ApresentarDados();
-        Usuario usuario = new Usuario();
+//        Usuario usuario = new Usuario();
         Boolean estaLogado = false;
         CPU cpu = new CPU();
         CPULeitura cpuLeitura = new CPULeitura();
@@ -25,6 +25,8 @@ public class Main {
         RedeGrupo redeGrupo = new RedeGrupo();
         RedeGrupoLeitura redeGrupoLeitura = new RedeGrupoLeitura();
         SistemaLeitura sistemaLeitura = new SistemaLeitura();
+
+        HardwareLeitura hardwareLeitura = new HardwareLeitura();
 
         System.out.println("******************************************************************************************");
         System.out.println("""
@@ -44,13 +46,14 @@ public class Main {
             System.out.print("Senha:");
             String senha = sc.nextLine();
 
-            if (usuario.verificarUsuario(email, senha).equals(true)) {
+//            if (usuario.verificarUsuario(email, senha).equals(true)) {
                 System.out.println("Login efetuado com sucesso!!");
 //                criarTabelas.criarTabelaBanco();
 //            while (usuario.verificarUsuario(email, senha).equals(true)){
-                inserindo.inserindoDadosNaTabela();
+//                inserindo.inserindoDadosNaTabela();
                 System.out.println(sistemaLeitura);
-                System.out.println(cpu);
+                System.out.println(hardwareLeitura
+                );
                 System.out.println(cpuLeitura);
                 System.out.println(hd);
                 System.out.println(hdLeitura);
@@ -58,10 +61,10 @@ public class Main {
                 System.out.println(ramLeitura);
 //                apresentarDados.pegarDadosTabela();
                 estaLogado = true;
-//            }
-            } else {
-                System.out.println("Acesso não permitido, email ou senha invalidos, tente novamente com os dados necessários.\n");
             }
+//            } else {
+                System.out.println("Acesso não permitido, email ou senha invalidos, tente novamente com os dados necessários.\n");
+//            }
         }
     }
-}
+
